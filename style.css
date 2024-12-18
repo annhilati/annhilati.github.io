@@ -6,3 +6,15 @@
 .terminal-wrapper {
     display: flex;
 }
+
+.terminal-wrapper {
+    background-color: black;
+}
+
+.terminal-text {
+    list-style: none;
+}
+
+.terminal-text li {
+    margin-bottom: 5px;
+}

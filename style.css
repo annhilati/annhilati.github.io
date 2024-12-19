@@ -144,7 +144,7 @@
     }
 
     .terminal-columns {
-        gap: 5px;
+        gap: 0px;
     }
 
     .terminal-columns img {

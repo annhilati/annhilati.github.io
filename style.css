@@ -109,6 +109,7 @@
 
 .terminal-columns {
     display: flex;
+    flex-direction: row;
     margin: 0;
     padding: 10px;
     list-style: none;
@@ -134,6 +135,6 @@
     }
 
     .terminal-columns {
-        display: block;
+        flex-direction: column;
     }
 }

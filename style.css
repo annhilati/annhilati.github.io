@@ -90,6 +90,10 @@
     font-weight: bold;
 }
 
+.leading-break {
+    margin-top: var(--font-size) !important;
+}
+
 .cursor {
     animation: fade 1s infinite;
 }

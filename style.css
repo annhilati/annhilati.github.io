@@ -10,14 +10,22 @@
     display: flex;
 }
 
-.terminal-wrapper {
+.terminal {
     background-color: black;
 }
 
 .terminal-text {
     list-style: none;
+    color: gray;
 }
 
 .terminal-text li {
     margin-bottom: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+    .terminal {
+        min-width: 400px;
+        min-height: 600px;
+    }
 }

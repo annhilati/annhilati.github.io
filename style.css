@@ -62,7 +62,11 @@
     display: inline-block;
     margin: 0px;
     padding: 0;
-    color: gray;
+    color: var(--font-color);
+}
+
+.terminal-text-body a:hover {
+    color: rgb(215, 215, 215);
 }
 
 .terminal-text-body > h1 {
@@ -110,5 +114,5 @@
     margin: 10px;
     width: 100%;
     max-width: 15vw;
-    
+
 }

@@ -5,6 +5,7 @@
     --font-size: 14px;
     --font-color: gray;
     --accent-color: #681fd3;
+    --accent-color-light: #7322ed96;
 }
 
 .body {
@@ -35,8 +36,17 @@
     margin: 0;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 3px 2px var(--accent-color);
+    animation: terminal-outline 3.5s infinite;
 }
+
+@keyframes terminal-outline {
+    0%, 100% {
+        box-shadow: 0 0 2px 2px var(--accent-color);
+    }
+
+    50% {
+        box-shadow: 0 0 2px 2px var(--accent-color-light);
+    }}
 
 /* ╭────────────────────────────────────────────────────────────────────────────────╮
    │                                     Text                                       │
@@ -66,7 +76,7 @@
 }
 
 .terminal-text-body a:hover {
-    color: rgb(215, 215, 215);
+    color: rgb(193, 193, 193);
 }
 
 .terminal-text-body > h1 {
@@ -115,4 +125,10 @@
     width: 100%;
     max-width: 15vw;
 
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .terminal {
+        width: 95%;
+    }
 }

@@ -75,7 +75,7 @@
 }
 
 .cursor {
-    animation: fade 2s infinite;
+    animation: fade 1s infinite;
 }
 
 @keyframes fade {

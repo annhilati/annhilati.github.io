@@ -14,6 +14,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     margin: 0;
     padding: 0;
     /* background-image: url(bg.jpg); */
@@ -129,9 +130,13 @@
 }
 
 @media (max-width: 768px) and (orientation: portrait) {
+    .terminal-text-body {
+        font-size: 2px !important;
+    }
+
     .terminal {
-        width: 95vw;
-        max-height: 90vh;
+        max-width: 400px !important;
+        max-height: 90%;
     }
 
     .terminal-columns {

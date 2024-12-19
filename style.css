@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
 .body {
     display: flex;
     justify-content: center;
@@ -14,6 +16,8 @@
 }
 
 .terminal {
+    font-family: "JetBrains Mono", serif;
+    font-size: 14px;
     background-color: black;
     min-width: 800px;
     min-height: 600px;
@@ -24,14 +28,36 @@
 .terminal-text {
     list-style: none;
     color: gray;
+    margin: 0;
+    padding: 10px;
 }
 
-.terminal-text li {
+.terminal-text > li {
+    display: block;
     margin-bottom: 0px;
 }
 
-/* @media screen and (min-width: 1024px) {
+.terminal-columns {
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    gap: 30px;
+}
+
+.terminal-columns>li {
+    flex-shrink: 0;
+    width: auto;
+}
+
+.terminal-columns img {
+    margin-left: 20px;
+    width: 100%;
+    max-width: 30vh;
+}
+
+@media screen and (max-width: 820px) {
     .terminal {
-        
+        width: 95% !important;
     }
-} */
+}

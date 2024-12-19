@@ -129,6 +129,11 @@
 
 @media (max-width: 768px) and (orientation: portrait) {
     .terminal {
-        width: 95%;
+        width: 95vw;
+        max-height: 90vh;
+    }
+
+    .terminal-columns {
+        display: block;
     }
 }

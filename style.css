@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
+:root {
+    --font-size: 14px;
+}
+
 .body {
+    background-color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +22,7 @@
 
 .terminal {
     font-family: "JetBrains Mono", serif;
-    font-size: 14px;
+    font-size: var(--font-size);
     background-color: black;
     min-width: 800px;
     min-height: 600px;
@@ -25,17 +30,36 @@
     padding: 0;
 }
 
-.terminal-text {
+/* ╭────────────────────────────────────────────────────────────────────────────────╮
+   │                                     Text                                       │
+   ╰────────────────────────────────────────────────────────────────────────────────╯ */
+
+.terminal-text-body {
+    display: block;
     list-style: none;
     color: gray;
     margin: 0;
     padding: 10px;
 }
 
-.terminal-text > li {
-    display: block;
-    margin-bottom: 0px;
+.terminal-text-body > p {
+    display: inline-block;
+    margin: 0px;
+    padding: 0;
 }
+
+.terminal-text-body > h1 {
+    margin: 0;
+    padding: 0;
+    font-size:var(--font-size);
+    display: inline;
+    color: purple;
+    font-weight: bold;
+}
+
+/* ╭────────────────────────────────────────────────────────────────────────────────╮
+   │                                    Spalten                                     │
+   ╰────────────────────────────────────────────────────────────────────────────────╯ */
 
 .terminal-columns {
     display: flex;

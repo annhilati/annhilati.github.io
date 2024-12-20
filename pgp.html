@@ -6,33 +6,28 @@
 </head>
 <body class="body">
     <div class="terminal-text-body">
-        <p>
-        -----BEGIN PGP PUBLIC KEY BLOCK-----<br>
-        <br>
-        mDMEZ2MG0RYJKwYBBAHaRw8BAQdAjWqqDqcG4NWhcgC1D05mtEv6RhfcUn/GYZn/<br>
-        mZLOXg+0CUFubmhpbGF0aYiZBBMWCgBBFiEESc17KD0onU0KsR+uSURKRUm9FaUF<br>
-        AmdjBtECGwMFCQWjPt8FCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQSURK<br>
-        RUm9FaU22wD/YuvyfqjdUDoyUqjs2lmh65oPrj6+e/iH1re74wfCxLgBAJ4mr8/l<br>
-        nSRb5H5x8Lmr3fX5EiHhvUbhBZxHr/1WFFIEuDgEZ2MG0RIKKwYBBAGXVQEFAQEH<br>
-        QProFGn6H+zjG+WS9/vyfKdQLP/9JXE8jZ1hbRUDv8QBAwEIB4h+BBgWCgAmFiEE<br>
-        Sc17KD0onU0KsR+uSURKRUm9FaUFAmdjBtECGwwFCQWjPt8ACgkQSURKRUm9FaW9<br>
-        fQEAwWdtbaoJfZKWBc7aboeEfQ85rjoSAlykuu8cbdkpYwwA/0Jlk/E9BSHAC4EQ<br>
-        Z+79fuoEaHXjeN3QRB4Db325OksC<br>
-        =eEcS<br>
-        -----END PGP PUBLIC KEY BLOCK-----<br>
-        </p>
+        <p id="pgp-key"></p>
     </div>
 
     <script>
-        window.onload = function () {
-            // Der Text, der in die Zwischenablage kopiert werden soll
-            const textToCopy = "-----BEGIN PGP PUBLIC KEY BLOCK-----\n\nmDMEZ2MG0RYJKwYBBAHaRw8BAQdAjWqqDqcG4NWhcgC1D05mtEv6RhfcUn/GYZn/\nmZLOXg+0CUFubmhpbGF0aYiZBBMWCgBBFiEESc17KD0onU0KsR+uSURKRUm9FaUF\nAmdjBtECGwMFCQWjPt8FCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQSURK\nRUm9FaU22wD/YuvyfqjdUDoyUqjs2lmh65oPrj6+e/iH1re74wfCxLgBAJ4mr8/l\nnSRb5H5x8Lmr3fX5EiHhvUbhBZxHr/1WFFIEuDgEZ2MG0RIKKwYBBAGXVQEFAQEH\nQProFGn6H+zjG+WS9/vyfKdQLP/9JXE8jZ1hbRUDv8QBAwEIB4h+BBgWCgAmFiEE\nSc17KD0onU0KsR+uSURKRUm9FaUFAmdjBtECGwwFCQWjPt8ACgkQSURKRUm9FaW9\nfQEAwWdtbaoJfZKWBc7aboeEfQ85rjoSAlykuu8cbdkpYwwA/0Jlk/E9BSHAC4EQ\nZ+79fuoEaHXjeN3QRB4Db325OksC\n=eEcS\n-----END PGP PUBLIC KEY BLOCK-----";
 
-            function copyToClipboard(text) {
-                navigator.clipboard.writeText(text).then(function () {
-                }).catch(function (error) {
-                });
-            }
+        const filePath = 'Annhilati_0x4358632C_public.asc';
+
+        fetch(filePath)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('pgp-key').innerHTML = data.replace(/\n/g, '<br>');
+            })
+            .catch(error => console.error('Fehler beim Laden der Datei:', error));
+
+
+        window.onload = function () {
+            const textToCopy = pgpkey
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function () {
+            });
+        }
 
             copyToClipboard(textToCopy);
         }

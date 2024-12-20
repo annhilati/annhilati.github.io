@@ -131,7 +131,7 @@
     margin: 10px;
     width: 100%;
     max-width: 15vw;
-
+    border-radius: 3px;
 }
 
 @media (max-width: 768px) and (orientation: portrait) {

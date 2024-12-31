@@ -60,11 +60,11 @@
     padding: 3px;
     border-radius: 13px;
     background-image: conic-gradient(from var(--angle), transparent, transparent, var(--accent-color));
-    animation: terminal-outline 6s linear infinite;
+    animation: terminal-outline 12s linear infinite;
 }
 
 .terminal::before {
-    filter: blur(1.5rem);
+    filter: blur(40px);
     opacity: 0.5;
 }
 

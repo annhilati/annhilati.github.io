@@ -25,6 +25,12 @@
     background-attachment: scroll;
 }
 
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
 .terminal-wrapper {
     display: flex;
     margin: 0;
@@ -36,19 +42,40 @@
     background-color: black;
     height: auto;
     margin: 0;
-    padding: 10px;
+    padding: 13px;
     border-radius: 10px;
-    animation: terminal-outline 3.5s infinite;
+    position: relative;
+}
+
+.terminal::after, .terminal::before {
+    --angle: 0deg;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 13px;
+    background-image: conic-gradient(from var(--angle), transparent, transparent, var(--accent-color));
+    animation: terminal-outline 6s linear infinite;
+}
+
+.terminal::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
 
 @keyframes terminal-outline {
-    0%, 100% {
-        box-shadow: 0 0 2px 2px var(--accent-color);
+    from {
+        --angle: 0deg
     }
-
-    50% {
-        box-shadow: 0 0 2px 2px var(--accent-color-light);
-    }}
+    to {
+        --angle: 360deg
+    }
+}
 
 /* ╭────────────────────────────────────────────────────────────────────────────────╮
    │                                     Text                                       │

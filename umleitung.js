@@ -1,3 +1,4 @@
 if (window.location.pathname === "/redirect/bennodiscord") {
-window.location.href = "https://discord.gg/qqNeamKas4";
+    // Leitet zu /neu weiter
+    window.location.replace("https://discord.gg/qqNeamKas4");
 }

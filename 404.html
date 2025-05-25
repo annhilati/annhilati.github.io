@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Weiterleitung</title>
+  <script>
+    const redirects = {
+      "/redirect/bennodiscord": "https://discord.gg/qqNeamKas4",
+      "/redirect/beispiel": "https://example.com"
+    };
+
+    const path = window.location.pathname;
+    if (redirects[path]) {
+      window.location.replace(redirects[path]);
+    } else {
+      document.body.innerHTML = "<h1>404 - Seite nicht gefunden</h1>";
+    }
+  </script>
+</head>
+<body>
+  <p>Wird weitergeleitet...</p>
+</body>
+</html>

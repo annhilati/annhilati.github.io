@@ -1,1 +1,1 @@
-window.location.replace("https://discord.gg/qqNeamKas4");
+window.location.replace("https://discord.gg/fMQSHw7Bns");

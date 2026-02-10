@@ -33,21 +33,6 @@
                 .catch(error => console.error('Fehler beim Kopieren in die Zwischenablage:', error));
         }
 
-        // window.onload = function () {
-        //     fetch(filePath)
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             // PGP-Key in das HTML-Element einfügen
-        //             const pgpKeyElement = document.getElementById('pgp-key');
-        //             pgpKeyElement.innerHTML = data.replace(/\n/g, '<br>');
-
-        //             // Text aus dem Element holen und kopieren
-        //             const textToCopy = data; // Originaltext ohne <br>
-        //             copyToClipboard(textToCopy);
-        //         })
-        //         .catch(error => console.error('Fehler beim Laden der Datei:', error));
-        // };
-
         const textToCopy = "-----BEGIN PGP PUBLIC KEY BLOCK-----\nmDMEZ2Vh7hYJKwYBBAHaRw8BAQdAuBKaNw9vRM4cJ9NRjlvmHfqF8PIeqSjY27ip\nvHVPlE20I0FubmhpbGF0aSA8YW5uaGlsYXRpQGJsYXplc21ldGEuZGU+iJkEExYK\nAEEWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUCZ2Vh7gIbAwUJBbIHQgULCQgHAgIi\nAgYVCgkICwIEFgIDAQIeBwIXgAAKCRCr+XnoQ1hjLCWLAQDi1bhNHjDVDIirPTBn\nfk0d4mxAxxyBjpjgbP+WX5DrYQD8CGPueuxtfPxKHXfigKsWQcat7bObg3jgkJPV\nFaQ1twe4OARnZWHuEgorBgEEAZdVAQUBAQdABqqurOOm5E2XSqARIdXgheuEdR8r\noxWdZdmGiKjoq0wDAQgHiH4EGBYKACYWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUC\nZ2Vh7gIbDAUJBbIHQgAKCRCr+XnoQ1hjLImaAQD9zDsjdPVLrvPKrSY9HtXn5eE7\nV72MPm3k85Fx5qd8rgEAu9A5RELWtPF/nz9qx9B50BYmd0obWQkl9VxI6EFaMQI=\n=4erd\n-----END PGP PUBLIC KEY BLOCK-----\n"
         window.onload = function () {
             copyToClipboard(textToCopy);

@@ -175,9 +175,16 @@
 
 @media (max-width: 720px), (max-aspect-ratio: 1/1) {
     
+    /* .body {
+        min-height: 100dvh;
+    } */
+
     .terminal-wrapper {
-        width: 95vw;
-        margin: auto;
+        width: 93vw;
+    }
+
+    .terminal {
+        width: 100%;
     }
 
     .terminal-text-body {
@@ -186,7 +193,13 @@
 
     #avatar {
         margin: 5px;
-        width: 200px;
+        width: 185px;
+    }
+
+    #discord-banner {
+        width: 100%;
+        max-width: 430px;
+        height: auto;
     }
 
     .terminal-columns {

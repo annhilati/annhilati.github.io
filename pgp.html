@@ -7,36 +7,34 @@
 </head>
 <body class="body">
     <div class="terminal-text-body pgp-wrapper">
-        <p id="pgp-key">-----BEGIN PGP PUBLIC KEY BLOCK-----<br>
-            <br>
-            mDMEZ2Vh7hYJKwYBBAHaRw8BAQdAuBKaNw9vRM4cJ9NRjlvmHfqF8PIeqSjY27ip<br>
-            vHVPlE20I0FubmhpbGF0aSA8YW5uaGlsYXRpQGJsYXplc21ldGEuZGU+iJkEExYK<br>
-            AEEWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUCZ2Vh7gIbAwUJBbIHQgULCQgHAgIi<br>
-            AgYVCgkICwIEFgIDAQIeBwIXgAAKCRCr+XnoQ1hjLCWLAQDi1bhNHjDVDIirPTBn<br>
-            fk0d4mxAxxyBjpjgbP+WX5DrYQD8CGPueuxtfPxKHXfigKsWQcat7bObg3jgkJPV<br>
-            FaQ1twe4OARnZWHuEgorBgEEAZdVAQUBAQdABqqurOOm5E2XSqARIdXgheuEdR8r<br>
-            oxWdZdmGiKjoq0wDAQgHiH4EGBYKACYWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUC<br>
-            Z2Vh7gIbDAUJBbIHQgAKCRCr+XnoQ1hjLImaAQD9zDsjdPVLrvPKrSY9HtXn5eE7<br>
-            V72MPm3k85Fx5qd8rgEAu9A5RELWtPF/nz9qx9B50BYmd0obWQkl9VxI6EFaMQI=<br>
-            =4erd<br>
-            -----END PGP PUBLIC KEY BLOCK-----<br>
-        </p>
+        <pre id="pgp-key">Lade Schlüssel...</pre>
     </div>
 
     <script>
-
         const filePath = 'Annhilati_0x4358632C_public.asc';
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => console.log('Text wurde in die Zwischenablage kopiert.'))
-                .catch(error => console.error('Fehler beim Kopieren in die Zwischenablage:', error));
+        async function loadPGPKey() {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error('Datei konnte nicht geladen werden');
+                }
+
+                const keyText = await response.text();
+
+                // Inhalt anzeigen
+                const keyElement = document.getElementById('pgp-key');
+                keyElement.textContent = keyText;
+
+                await navigator.clipboard.writeText(keyText);
+
+            } catch (error) {
+                document.getElementById('pgp-key').textContent =
+                    'Fehler beim Laden des PGP-Keys.';
+                console.error(error);
+            }
         }
 
-        const textToCopy = "-----BEGIN PGP PUBLIC KEY BLOCK-----\nmDMEZ2Vh7hYJKwYBBAHaRw8BAQdAuBKaNw9vRM4cJ9NRjlvmHfqF8PIeqSjY27ip\nvHVPlE20I0FubmhpbGF0aSA8YW5uaGlsYXRpQGJsYXplc21ldGEuZGU+iJkEExYK\nAEEWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUCZ2Vh7gIbAwUJBbIHQgULCQgHAgIi\nAgYVCgkICwIEFgIDAQIeBwIXgAAKCRCr+XnoQ1hjLCWLAQDi1bhNHjDVDIirPTBn\nfk0d4mxAxxyBjpjgbP+WX5DrYQD8CGPueuxtfPxKHXfigKsWQcat7bObg3jgkJPV\nFaQ1twe4OARnZWHuEgorBgEEAZdVAQUBAQdABqqurOOm5E2XSqARIdXgheuEdR8r\noxWdZdmGiKjoq0wDAQgHiH4EGBYKACYWIQQVJcr5htJ2VlKrncGr+XnoQ1hjLAUC\nZ2Vh7gIbDAUJBbIHQgAKCRCr+XnoQ1hjLImaAQD9zDsjdPVLrvPKrSY9HtXn5eE7\nV72MPm3k85Fx5qd8rgEAu9A5RELWtPF/nz9qx9B50BYmd0obWQkl9VxI6EFaMQI=\n=4erd\n-----END PGP PUBLIC KEY BLOCK-----\n"
-        window.onload = function () {
-            copyToClipboard(textToCopy);
-        }
-
+        window.addEventListener('DOMContentLoaded', loadPGPKey);
     </script>
 </body>

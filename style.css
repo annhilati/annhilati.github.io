@@ -35,7 +35,8 @@
     display: flex;
     margin: 0;
     padding: 0;
-    max-width: 100%;
+    width: auto;
+    height: auto;
 }
 
 .terminal {
@@ -60,7 +61,7 @@
     padding: 3px;
     border-radius: 13px;
     background-image: conic-gradient(from var(--angle), transparent, transparent, var(--accent-color));
-    animation: terminal-outline 12s linear infinite;
+    animation: terminal-outline 20s linear infinite;
 }
 
 .terminal::before {
@@ -157,42 +158,42 @@
 
 #avatar {
     margin: 10px;
-    width: 100%;
-    max-width: 12vw;
+    width: 150px;
     border-radius: 3px;
 }
 
 #discord-banner {
-    margin: 0px;
-    width: 100%;
-    max-width: 25vw;
+    z-index: -1;
+    margin: -5px;
+    height: 130px;
     border-radius: 3px;
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-    .body {
-        height: 90vh;
-    }
+/* ╭────────────────────────────────────────────────────────────────────────────────╮
+   │                               Mobile Overrides                                 │
+   ╰────────────────────────────────────────────────────────────────────────────────╯ */
 
+@media (max-width: 720px), (max-aspect-ratio: 1/1) {
+    
     .terminal-wrapper {
         width: 95vw;
+        margin: auto;
     }
 
     .terminal-text-body {
         font-size: 12px;
     }
 
+    #avatar {
+        margin: 5px;
+        width: 200px;
+    }
+
     .terminal-columns {
         flex-direction: column;
-    }
-
-    .terminal-columns {
         gap: 0px;
-    }
-
-    .terminal-columns img {
-        margin: 0px;
-        max-width: 30vw;
+        padding-bottom: 20px;
+        padding-top: 10px;
     }
 
     .pgp-wrapper {

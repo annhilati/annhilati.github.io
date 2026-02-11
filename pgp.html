@@ -7,7 +7,7 @@
 </head>
 <body class="body">
     <div class="terminal-text-body pgp-wrapper">
-        <pre id="pgp-key">Lade Schlüssel...</pre>
+        <pre id="pgp-key">Loading Key ...</pre>
     </div>
 
     <script>
@@ -22,11 +22,18 @@
 
                 const keyText = await response.text();
 
-                // Inhalt anzeigen
                 const keyElement = document.getElementById('pgp-key');
                 keyElement.textContent = keyText;
 
-                await navigator.clipboard.writeText(keyText);
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => console.log('Text wurde in die Zwischenablage kopiert.'))
+                        .catch(error => console.error('Fehler beim Kopieren in die Zwischenablage:', error));
+                }
+
+                window.onload = function () {
+                    copyToClipboard(keyText);
+                }
 
             } catch (error) {
                 document.getElementById('pgp-key').textContent =
